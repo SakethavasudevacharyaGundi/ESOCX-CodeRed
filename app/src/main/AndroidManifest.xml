@@ -35,6 +35,12 @@
             android:name=".DocumentInterpreterActivity"
             android:exported="false"
             android:label="Legal Document Interpreter" />
+
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false"
+            android:theme="@style/Theme.LegalAid.NoActionBar"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

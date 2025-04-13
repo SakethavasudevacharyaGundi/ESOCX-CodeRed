@@ -39,7 +39,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -55,8 +54,9 @@ dependencies {
     // Material Design 3
     implementation("com.google.android.material:material:1.11.0")
 
-    // Coil for image loading
-    implementation("io.coil-kt:coil:2.5.0")
+    // Image loading libraries
+    implementation("io.coil-kt:coil:2.5.0")  // Coil
+    implementation("com.github.bumptech.glide:glide:4.16.0")  // Glide
 
     // OkHttp for network requests
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
