@@ -1,4 +1,28 @@
+# IDE files
+.idea/
 *.iml
+.idea/misc.xml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+
+# Environment files
+.env
+.env.local
+
+# Build files
+*.apk
+*.aab
+*.aar
+*.ap_
+*.dex
+
 .gradle
 /local.properties
 /.idea/caches
