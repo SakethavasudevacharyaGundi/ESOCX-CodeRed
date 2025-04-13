@@ -3,6 +3,8 @@ from transformers import pipeline
 import PyPDF2
 import docx
 import os
+import pytesseract
+from PIL import Image
 
 class DocumentSummarizer:
     def __init__(self):
@@ -10,6 +12,8 @@ class DocumentSummarizer:
         self.nlp = spacy.load("en_core_web_sm")
         # Initialize summarization pipeline
         self.summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+        # Set path to tesseract executable (update this path based on your system)
+        pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
     def read_pdf(self, file_path):
         """Read text from PDF file"""
@@ -32,6 +36,17 @@ class DocumentSummarizer:
         """Read text from TXT file"""
         with open(file_path, 'r', encoding='utf-8') as file:
             return file.read()
+
+    def read_image(self, file_path):
+        """Read text from image file using OCR"""
+        try:
+            # Open the image file
+            image = Image.open(file_path)
+            # Perform OCR
+            text = pytesseract.image_to_string(image)
+            return text
+        except Exception as e:
+            raise ValueError(f"Error processing image: {str(e)}")
 
     def preprocess_text(self, text):
         """Preprocess text using spaCy"""
@@ -63,6 +78,8 @@ class DocumentSummarizer:
             text = self.read_docx(file_path)
         elif ext == '.txt':
             text = self.read_txt(file_path)
+        elif ext in ['.jpg', '.jpeg', '.png', '.bmp']:
+            text = self.read_image(file_path)
         else:
             raise ValueError(f"Unsupported file format: {ext}")
 
