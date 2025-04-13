@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.saketh.legalaid.databinding.ActivityDocumentInterpreterBinding
 import java.io.File
 import java.io.FileOutputStream
+import org.json.JSONObject
 
 class DocumentInterpreterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDocumentInterpreterBinding
@@ -53,9 +54,9 @@ class DocumentInterpreterActivity : AppCompatActivity() {
 
             // Process the document
             documentSummarizer.summarizeDocument(tempFile, object : DocumentSummarizer.SummaryCallback {
-                override fun onSuccess(summary: String) {
+                override fun onSuccess(response: JSONObject) {
                     runOnUiThread {
-                        showSummary(summary)
+                        showDocumentResults(response)
                     }
                 }
 
@@ -102,5 +103,21 @@ class DocumentInterpreterActivity : AppCompatActivity() {
     private fun showError(error: String) {
         binding.progressIndicator.visibility = View.GONE
         Toast.makeText(this, error, Toast.LENGTH_LONG).show()
+    }
+
+    private fun showDocumentResults(response: JSONObject) {
+        val intent = Intent(this, DocumentResultsActivity::class.java).apply {
+            putExtra("summary", response.optString("summary", ""))
+            putExtra("title", response.optString("title", "Document Summary"))
+            val keyPoints = ArrayList<String>()
+            val keyPointsArray = response.optJSONArray("key_points")
+            if (keyPointsArray != null) {
+                for (i in 0 until keyPointsArray.length()) {
+                    keyPoints.add(keyPointsArray.optString(i))
+                }
+            }
+            putStringArrayListExtra("keyPoints", keyPoints)
+        }
+        startActivity(intent)
     }
 }
