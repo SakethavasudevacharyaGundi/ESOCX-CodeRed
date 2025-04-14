@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.buttonGetLegalAid.setOnClickListener {
-            Toast.makeText(this, "Legal Aid Coming Soon", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, LegalAidRequestActivity::class.java))
         }
     }
 
