@@ -1,19 +1,34 @@
 package com.saketh.legalaid
 
 import android.os.Bundle
-import android.widget.LinearLayout
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.progressindicator.CircularProgressIndicator
 
 class DocumentResultsActivity : AppCompatActivity() {
+    private lateinit var progressIndicator: CircularProgressIndicator
+    private lateinit var errorText: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_document_results)
 
+        // Initialize views
+        progressIndicator = findViewById(R.id.progressIndicator)
+        errorText = findViewById(R.id.errorText)
+
+        // Show loading state
+        showLoading()
+
         // Get data from intent
         val summary = intent.getStringExtra("summary") ?: ""
-        val keyPoints = intent.getStringArrayListExtra("keyPoints") ?: arrayListOf()
         val title = intent.getStringExtra("title") ?: "Document Summary"
+
+        if (summary.isEmpty()) {
+            showError("No content available")
+            return
+        }
 
         // Set the title
         findViewById<TextView>(R.id.documentTitle).text = title
@@ -21,23 +36,22 @@ class DocumentResultsActivity : AppCompatActivity() {
         // Set the summary
         findViewById<TextView>(R.id.summary).text = summary
 
-        // Add key points
-        val keyPointsContainer = findViewById<LinearLayout>(R.id.keyPointsContainer)
-        keyPoints.forEach { point ->
-            addBulletPoint(keyPointsContainer, point)
-        }
+        // Hide loading state
+        hideLoading()
     }
 
-    private fun addBulletPoint(container: LinearLayout, text: String) {
-        val bulletPoint = TextView(this).apply {
-            this.text = "• $text"
-            layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            ).apply {
-                setMargins(0, 8, 0, 8)
-            }
-        }
-        container.addView(bulletPoint)
+    private fun showLoading() {
+        progressIndicator.visibility = View.VISIBLE
+        errorText.visibility = View.GONE
+    }
+
+    private fun hideLoading() {
+        progressIndicator.visibility = View.GONE
+    }
+
+    private fun showError(message: String) {
+        progressIndicator.visibility = View.GONE
+        errorText.visibility = View.VISIBLE
+        errorText.text = message
     }
 }
