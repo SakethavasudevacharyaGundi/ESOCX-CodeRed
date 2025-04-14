@@ -10,6 +10,7 @@ from pdf2image import convert_from_path
 import google.generativeai as genai
 from dotenv import load_dotenv
 import tempfile
+from image_enhancer import ImageEnhancer
 
 # Load environment variables
 load_dotenv()
@@ -57,7 +58,9 @@ def extract_text_from_pdf(file):
                     # If no text found, convert page to image and use OCR
                     images = convert_from_path(temp_pdf_path, first_page=page_num+1, last_page=page_num+1)
                     if images:
-                        page_text = pytesseract.image_to_string(images[0])
+                        # Enhance the image before OCR
+                        enhanced_image = ImageEnhancer.enhance_pdf_page(images[0])
+                        page_text = pytesseract.image_to_string(enhanced_image)
                         text += f"\n--- Page {page_num + 1} (OCR) ---\n{page_text}\n"
                         has_text = True
 
@@ -66,7 +69,9 @@ def extract_text_from_pdf(file):
                 images = convert_from_path(temp_pdf_path)
                 text = ""
                 for i, image in enumerate(images):
-                    page_text = pytesseract.image_to_string(image)
+                    # Enhance each image before OCR
+                    enhanced_image = ImageEnhancer.enhance_pdf_page(image)
+                    page_text = pytesseract.image_to_string(enhanced_image)
                     text += f"\n--- Page {i + 1} (OCR) ---\n{page_text}\n"
 
             return text
@@ -87,8 +92,18 @@ def extract_text_from_image(file):
     try:
         # Open the image
         image = Image.open(file)
-        # Perform OCR
-        text = pytesseract.image_to_string(image)
+
+        # Convert image to bytes for enhancement
+        img_byte_arr = io.BytesIO()
+        image.save(img_byte_arr, format=image.format)
+        img_byte_arr = img_byte_arr.getvalue()
+
+        # Enhance the image
+        enhanced_image_data = ImageEnhancer.enhance_image(img_byte_arr)
+        enhanced_image = Image.open(io.BytesIO(enhanced_image_data))
+
+        # Perform OCR on enhanced image
+        text = pytesseract.image_to_string(enhanced_image)
         return text
     except Exception as e:
         logger.error(f"Error extracting text from image: {str(e)}")
