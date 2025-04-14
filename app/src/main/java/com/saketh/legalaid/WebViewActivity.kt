@@ -19,11 +19,11 @@ class WebViewActivity : AppCompatActivity() {
         binding = ActivityWebViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.apply {
-            setDisplayHomeAsUpEnabled(true)
-            title = "Case Tracker"
+        binding.backButton.setOnClickListener {
+            finish()
         }
+
+        binding.titleText.text = "Case Tracker"
 
         binding.webView.apply {
             settings.javaScriptEnabled = true
@@ -32,30 +32,18 @@ class WebViewActivity : AppCompatActivity() {
             
             webViewClient = object : WebViewClient() {
                 override fun onPageFinished(view: WebView?, url: String?) {
-                    binding.progressBar.visibility = View.GONE
                     super.onPageFinished(view, url)
                 }
             }
 
             webChromeClient = object : WebChromeClient() {
                 override fun onProgressChanged(view: WebView?, newProgress: Int) {
-                    if (newProgress < 100) {
-                        binding.progressBar.visibility = View.VISIBLE
-                    }
                     super.onProgressChanged(view, newProgress)
                 }
             }
 
             loadUrl("https://services.ecourts.gov.in/ecourtindia_v6/?p=casestatus/index&app_token=9a86ac109eef0340f0605dd860607baa62523c513a4e663548c41")
         }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) {
-            finish()
-            return true
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     override fun onBackPressed() {

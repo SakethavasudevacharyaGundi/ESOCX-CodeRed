@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent">
+    android:background="@drawable/chatbot_gradient_background">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -94,8 +94,7 @@
         android:id="@+id/bottomLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:elevation="8dp"
+        android:background="@android:color/transparent"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent">
@@ -105,7 +104,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="12dp"
+            android:layout_marginHorizontal="16dp"
+            android:clipToPadding="false">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -116,42 +117,36 @@
                     android:id="@+id/ipcButton"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="#4169E1"
+                    android:fontFamily="@font/inter_display_semibold"
                     android:text="What is IPC Section 176C?"
                     android:textAllCaps="false"
-                    android:textColor="#666666"
-                    android:layout_marginEnd="8dp"
-                    app:cornerRadius="20dp"
-                    android:backgroundTint="#F5F5F5"
-                    app:strokeColor="#E0E0E0"
-                    app:strokeWidth="1dp"
-                    android:fontFamily="@font/inter_display_semibold"/>
+                    android:textColor="#FFFFFF"
+                    app:cornerRadius="20dp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/housingButton"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="#4169E1"
+                    android:fontFamily="@font/inter_display_semibold"
                     android:text="Housing Rules"
                     android:textAllCaps="false"
-                    android:textColor="#666666"
-                    android:layout_marginEnd="8dp"
-                    app:cornerRadius="20dp"
-                    android:backgroundTint="#F5F5F5"
-                    app:strokeColor="#E0E0E0"
-                    app:strokeWidth="1dp"
-                    android:fontFamily="@font/inter_display_semibold"/>
+                    android:textColor="#FFFFFF"
+                    app:cornerRadius="20dp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/faqButton"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
+                    android:backgroundTint="#4169E1"
+                    android:fontFamily="@font/inter_display_semibold"
                     android:text="FAQs"
                     android:textAllCaps="false"
-                    android:textColor="#666666"
-                    app:cornerRadius="20dp"
-                    android:backgroundTint="#F5F5F5"
-                    app:strokeColor="#E0E0E0"
-                    app:strokeWidth="1dp"
-                    android:fontFamily="@font/inter_display_semibold"/>
+                    android:textColor="#FFFFFF"
+                    app:cornerRadius="20dp" />
 
             </LinearLayout>
         </HorizontalScrollView>
@@ -159,44 +154,54 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
             app:cardCornerRadius="24dp"
-            app:cardElevation="0dp"
-            app:strokeColor="#E0E0E0"
-            app:strokeWidth="1dp"
-            app:cardBackgroundColor="#F5F5F5">
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="#4169E1">
 
-            <LinearLayout
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="8dp">
+                android:layout_margin="2dp"
+                app:cardCornerRadius="22dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF">
 
-                <EditText
-                    android:id="@+id/messageInput"
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:hint="Type your message here..."
-                    android:maxLines="4"
-                    android:minHeight="48dp"
-                    android:paddingHorizontal="16dp"
-                    android:textSize="16sp"
-                    android:textColorHint="#666666"
-                    android:fontFamily="@font/inter_display_semibold" />
+                    android:orientation="horizontal"
+                    android:padding="8dp">
 
-                <ImageButton
-                    android:id="@+id/sendButton"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="@null"
-                    android:src="@drawable/send"
-                    android:padding="8dp"
-                    android:scaleType="fitXY"
-                    android:adjustViewBounds="true"
-                    app:tint="#4169E1" />
+                    <EditText
+                        android:id="@+id/messageInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:fontFamily="@font/inter_display_semibold"
+                        android:hint="Type your message here..."
+                        android:maxLines="4"
+                        android:minHeight="48dp"
+                        android:paddingHorizontal="16dp"
+                        android:textColor="#000000"
+                        android:textColorHint="#666666"
+                        android:textSize="16sp" />
 
-            </LinearLayout>
+                    <ImageButton
+                        android:id="@+id/sendButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/send"
+                        android:padding="8dp"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        app:tint="#4169E1" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
 
         </com.google.android.material.card.MaterialCardView>
 
