@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.cardDocumentInterpreter.setOnClickListener {
-            Toast.makeText(this, "Document Interpreter Coming Soon", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, DocumentInterpreterActivity::class.java))
         }
 
         binding.cardProcessVisualizer.setOnClickListener {

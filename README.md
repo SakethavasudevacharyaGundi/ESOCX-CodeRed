@@ -7,8 +7,15 @@ NyayaPath is a cross-platform legal assistance app that empowers citizens to und
 ## 🚀 Features
 
 - **Legal Document Interpreter**
-  - Upload or scan legal documents
-  - Uses OCR (OpenCV) + AI (PyTorch) to extract and simplify content
+  - *Document Processing*
+    - Extract text from PDFs and images
+    - Support for multiple formats (PDF, PNG, JPG, JPEG)
+    - OCR using Tesseract for image processing
+  
+  - *AI-Powered Summarization*
+    - Generate concise summaries using Gemini AI
+    - Process legal documents efficiently
+    - Maintain context and key information
 
 - **AI Legal Chat Assistant**
   - Ask legal questions in plain language
