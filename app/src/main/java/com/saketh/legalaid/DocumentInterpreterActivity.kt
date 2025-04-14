@@ -41,6 +41,8 @@ class DocumentInterpreterActivity : AppCompatActivity() {
     }
 
     private fun handleSelectedFile(uri: Uri) {
+        android.util.Log.d("DocumentInterpreter", "File selected: $uri")
+
         // Show progress indicator
         binding.progressIndicator.visibility = View.VISIBLE
         binding.summaryCard.visibility = View.GONE
@@ -48,25 +50,32 @@ class DocumentInterpreterActivity : AppCompatActivity() {
         try {
             // Get file name
             val fileName = getFileName(uri)
+            android.util.Log.d("DocumentInterpreter", "File name: $fileName")
 
             // Create temporary file
             val tempFile = createTempFile(uri, fileName)
+            android.util.Log.d("DocumentInterpreter", "Temp file created: ${tempFile.absolutePath}")
+            android.util.Log.d("DocumentInterpreter", "Temp file exists: ${tempFile.exists()}")
+            android.util.Log.d("DocumentInterpreter", "Temp file size: ${tempFile.length()} bytes")
 
             // Process the document
             documentSummarizer.summarizeDocument(tempFile, object : DocumentSummarizer.SummaryCallback {
                 override fun onSuccess(response: JSONObject) {
+                    android.util.Log.d("DocumentInterpreter", "Document processed successfully")
                     runOnUiThread {
                         showDocumentResults(response)
                     }
                 }
 
                 override fun onError(error: String) {
+                    android.util.Log.e("DocumentInterpreter", "Error processing document: $error")
                     runOnUiThread {
                         showError(error)
                     }
                 }
             })
         } catch (e: Exception) {
+            android.util.Log.e("DocumentInterpreter", "Error handling file: ${e.message}", e)
             showError("Error processing file: ${e.message}")
         }
     }
