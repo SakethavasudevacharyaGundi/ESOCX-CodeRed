@@ -2,10 +2,8 @@ package com.saketh.legalaid
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.GravityCompat
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.saketh.legalaid.activities.DocumentInterpreterActivity
 import com.saketh.legalaid.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -26,10 +24,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupClickListeners() {
-        binding.menuButton.setOnClickListener {
-            binding.drawerLayout.openDrawer(GravityCompat.START)
-        }
-
         binding.cardDocumentInterpreter.setOnClickListener {
             startActivity(Intent(this, DocumentInterpreterActivity::class.java))
         }
@@ -59,19 +53,11 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_profile -> {
-                    Toast.makeText(this, "Profile Coming Soon", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, ProfileActivity::class.java))
                     true
                 }
                 else -> false
             }
-        }
-    }
-
-    override fun onBackPressed() {
-        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            binding.drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
         }
     }
 }

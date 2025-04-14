@@ -8,9 +8,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_iconapp"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_iconapp"
         android:supportsRtl="true"
         android:theme="@style/Theme.LegalAid"
         android:usesCleartextTraffic="true"
@@ -33,9 +33,10 @@
             android:theme="@style/Theme.LegalAid.NoActionBar" />
 
         <activity
-            android:name=".DocumentInterpreterActivity"
-            android:exported="false"
-            android:label="Legal Document Interpreter" />
+            android:name=".activities.DocumentInterpreterActivity"
+            android:label="@string/doc_interpreter"
+            android:theme="@style/Theme.LegalAid.NoActionBar"
+            android:exported="false" />
 
         <activity
             android:name=".ChatActivity"
@@ -44,13 +45,23 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".DocumentResultsActivity"
+            android:name=".activities.DocumentResultsActivity"
+            android:theme="@style/Theme.LegalAid.DocumentResults"
             android:exported="false" />
 
         <activity
             android:name=".LegalAidRequestActivity"
             android:exported="false"
-            android:theme="@style/Theme.LegalAid.NoActionBar" />
+            android:theme="@style/Theme.LegalAid.NoActionBar"
+            android:windowSoftInputMode="adjustResize"
+            android:fitsSystemWindows="true" />
+
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false"
+            android:theme="@style/Theme.LegalAid.NoActionBar"
+            android:windowSoftInputMode="adjustResize"
+            android:fitsSystemWindows="true" />
     </application>
 
 </manifest>

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Radial gradient for spherical effect with purple colors -->
     <gradient
         android:type="radial"
-        android:gradientRadius="500dp"
-        android:startColor="#4A148C"
-        android:centerColor="#7B1FA2"
-        android:endColor="#00FFFFFF"
-        android:centerX="0.9"
-        android:centerY="0.1"/>
+        android:gradientRadius="150%p"
+        android:startColor="#9C27B0"
+        android:endColor="#FFFFFF"
+        android:centerX="0.8"
+        android:centerY="0.2"/>
 </shape> 

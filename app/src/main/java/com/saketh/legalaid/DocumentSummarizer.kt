@@ -15,7 +15,7 @@ class DocumentSummarizer(private val context: Context) {
     private val client = OkHttpClient()
 
     // Set this to true for mock responses, false for real Gemini API
-    private val USE_MOCK_DATA = false
+    private val USE_MOCK_DATA = true
 
     companion object {
         // If using Android Emulator, use 10.0.2.2
@@ -199,45 +199,19 @@ class DocumentSummarizer(private val context: Context) {
                     "The agreement outlines the terms and conditions for handling sensitive information shared " +
                     "between the parties during their business relationship. It includes specific provisions for " +
                     "data protection, permitted uses, and breach consequences.")
-
+            
             // Add key points
-            put("key_points", JSONArray().apply {
-                put("All shared information must be kept strictly confidential")
-                put("Agreement is valid for 5 years from signing date")
-                put("Unauthorized disclosure may result in legal action")
-                put("Both parties must implement security measures")
-                put("Written consent required for information sharing")
-            })
-
-            // Add document type
-            put("document_type", "Legal Agreement")
-
-            // Add parties involved
-            put("parties_involved", JSONArray().apply {
-                put("Company X (Disclosing Party)")
-                put("Party Y (Receiving Party)")
-            })
-
-            // Add important dates
-            put("important_dates", JSONArray().apply {
-                put("Effective from: January 1, 2024")
-                put("Duration: 5 years")
-                put("Review period: 30 days")
-            })
-
-            // Add action items
-            put("action_items", JSONArray().apply {
-                put("Sign and return within 14 days")
-                put("Implement data protection measures")
-                put("Create list of authorized personnel")
-                put("Set up secure communication channels")
-            })
+            val keyPoints = JSONArray().apply {
+                put("Defines confidential information and its scope")
+                put("Specifies permitted uses of confidential information")
+                put("Outlines security measures for data protection")
+                put("Details breach notification requirements")
+                put("Sets duration and termination conditions")
+            }
+            put("key_points", keyPoints)
         }
-
-        // Simulate network delay (1 second)
-        Thread {
-            Thread.sleep(1000)
-            callback.onSuccess(mockResponse)
-        }.start()
+        
+        // Return the mock response
+        callback.onSuccess(mockResponse)
     }
 }

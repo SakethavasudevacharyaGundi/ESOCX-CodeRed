@@ -1,8 +1,10 @@
 package com.saketh.legalaid
 
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -116,20 +118,28 @@ class LegalAidRequestActivity : AppCompatActivity() {
         binding = ActivityLegalAidRequestBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setupToolbar()
+        // Set up system UI
+        window.apply {
+            statusBarColor = Color.TRANSPARENT
+            decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        }
+
+        setupBackButton()
         setupRegionDropdown()
         setupLawyersRecyclerView()
     }
 
-    private fun setupToolbar() {
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-        binding.backButton.setOnClickListener { onBackPressed() }
+    private fun setupBackButton() {
+        binding.backButton.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun setupRegionDropdown() {
         val adapter = ArrayAdapter(this, R.layout.dropdown_item, regions)
         binding.regionInput.setAdapter(adapter)
+        binding.regionInput.dropDownHeight = 400 // Set max height for dropdown
 
         binding.regionInput.setOnItemClickListener { _, _, position, _ ->
             val selectedRegion = regions[position]
