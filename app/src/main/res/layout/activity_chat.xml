@@ -55,7 +55,7 @@
                         android:id="@+id/botLogoImage"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/bot_avatar"
+                        android:src="@drawable/bot"
                         android:background="#FFFFFF"
                         android:padding="6dp"
                         android:scaleType="centerInside"

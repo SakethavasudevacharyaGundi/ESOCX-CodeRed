@@ -58,7 +58,7 @@
                 android:id="@+id/userAvatar"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/user_avatar"
+                android:src="@drawable/user"
                 android:scaleType="centerCrop"
                 app:shapeAppearanceOverlay="@style/CircularImageView"/>
         </LinearLayout>
@@ -104,7 +104,7 @@
                 android:id="@+id/aiAvatar"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/bot_avatar"
+                android:src="@drawable/bot"
                 android:scaleType="centerCrop"
                 android:layout_marginEnd="4dp"
                 app:shapeAppearanceOverlay="@style/CircularImageView"/>

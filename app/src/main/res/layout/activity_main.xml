@@ -8,192 +8,232 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <LinearLayout
+    <!-- Main Container -->
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="?android:colorBackground">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <!-- Background Gradient -->
+
+        <!-- Title Area with Radial Gradient -->
+        <View
+            android:id="@+id/titleBackground"
+            android:layout_width="412dp"
+            android:layout_height="797dp"
+            android:background="?attr/homeBackgroundGradient"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Menu Button -->
+        <ImageView
+            android:id="@+id/menuButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/menu"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <!-- Title Text -->
+
+        <!-- Grid Layout for Cards -->
+
+        <!-- Bottom Navigation -->
+
+        <com.saketh.legalaid.utils.TypeWriter
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="180dp"
+            android:textColor="#FFFFFF"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <GridLayout
+            android:id="@+id/gridLayout"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="388dp"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:useDefaultMargins="true"
+            app:layout_constraintTop_toTopOf="@+id/titleBackground"
+            tools:layout_editor_absoluteX="16dp">
 
-            <ImageView
-                android:id="@+id/menuButton"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/menu"
-                android:layout_marginStart="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Menu"/>
-
-        </androidx.appcompat.widget.Toolbar>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonGetLegalAid"
+            <!-- Document Interpreter Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardDocumentInterpreter"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="GET LEGAL AID"
-                android:textSize="14sp"
-                android:padding="12dp"
-                android:layout_marginBottom="32dp"
-                android:layout_marginHorizontal="48dp"
-                android:backgroundTint="@color/purple_700"
-                app:cornerRadius="24dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintVertical_bias="0.7"
-                app:layout_constraintWidth_percent="0.7"/>
+                android:layout_height="160dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp">
 
-            <GridLayout
-                android:id="@+id/gridLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="128dp"
-                android:columnCount="2"
-                android:padding="16dp"
-                android:rowCount="2"
-                android:useDefaultMargins="false"
-                app:layout_constraintBottom_toTopOf="@id/buttonGetLegalAid"
-                tools:layout_editor_absoluteX="0dp">
-
-                <!-- Legal Document Interpreter -->
                 <LinearLayout
-                    android:id="@+id/card_document_interpreter"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:src="@drawable/ic_document"/>
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/doc"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Legal Document\nInterpreter"
+                        android:layout_marginTop="12dp"
+                        android:text="Document\nInterpreter"
                         android:textAlignment="center"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="12sp"/>
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-                <!-- AI Chatbot -->
+            <!-- Justly BOT Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_chat_assistant"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp">
+
                 <LinearLayout
-                    android:id="@+id/card_chat_assistant"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:src="@drawable/ic_chat"/>
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/chat"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="AI Chatbot"
+                        android:layout_marginTop="12dp"
+                        android:text="Justly BOT"
                         android:textAlignment="center"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="12sp"/>
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-                <!-- Case Tracker -->
+            <!-- Case Tracker Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_case_tracker"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp">
+
                 <LinearLayout
-                    android:id="@+id/card_case_tracker"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:src="@drawable/ic_person"/>
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/link"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="12dp"
                         android:text="Case Tracker"
                         android:textAlignment="center"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="12sp"/>
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-                <!-- Process Visualizer -->
+            <!-- Get Legal Aid Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_get_legal_aid"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp">
+
                 <LinearLayout
-                    android:id="@+id/card_process_visualizer"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:src="@drawable/visualizer"/>
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/law"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Process Visualizer"
+                        android:layout_marginTop="12dp"
+                        android:text="Get Legal Aid"
                         android:textAlignment="center"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="12sp"/>
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-            </GridLayout>
+        </GridLayout>
 
-            <ImageView
-                android:id="@+id/bookIcon"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:src="@drawable/ic_book"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toTopOf="@id/titleText"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bottom_nav_background"
+            android:elevation="12dp"
+            app:itemIconTint="@color/bottom_nav_colors"
+            app:itemTextColor="@color/bottom_nav_colors"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:menu="@menu/bottom_nav_menu"/>
 
-            <TextView
-                android:id="@+id/titleText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:text="Legal Aid"
-                android:textColor="#4169E1"
-                android:textSize="36sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/gridLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Navigation Drawer -->
     <com.google.android.material.navigation.NavigationView
