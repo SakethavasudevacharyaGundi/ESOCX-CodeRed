@@ -5,9 +5,11 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.saketh.legalaid.adapter.LawyerProfileAdapter
 import com.saketh.legalaid.databinding.ActivityLegalAidRequestBinding
@@ -119,8 +121,10 @@ class LegalAidRequestActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Set up system UI
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         window.apply {
-            statusBarColor = Color.TRANSPARENT
+            statusBarColor = Color.BLACK
+            addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
                     View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         }

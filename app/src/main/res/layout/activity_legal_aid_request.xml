@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent">
+    android:background="@android:color/transparent"
+    android:fitsSystemWindows="false">
 
     <View
         android:id="@+id/backgroundGradient"
@@ -21,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="36dp"
         app:cardBackgroundColor="#9C27B0"
         app:cardCornerRadius="24dp"
         app:cardElevation="4dp"

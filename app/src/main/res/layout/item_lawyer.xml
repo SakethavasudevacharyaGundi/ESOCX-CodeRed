@@ -73,7 +73,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Experience"
+                    android:text="@string/experience"
                     android:textColor="#666666"
                     android:textSize="12sp" />
 
@@ -95,7 +95,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Success"
+                    android:text="@string/success_rate"
                     android:textColor="#666666"
                     android:textSize="12sp" />
 
@@ -117,7 +117,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rating"
+                    android:text="@string/rating"
                     android:textColor="#666666"
                     android:textSize="12sp" />
 
@@ -133,16 +133,16 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/contactButton"
-            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
-            android:text="CONTACT"
-            android:textSize="12sp"
+            android:layout_height="40dp"
             android:backgroundTint="#9C27B0"
-            android:textColor="@android:color/white"
-            app:cornerRadius="18dp"
+            android:text="@string/connect"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/profileImage" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

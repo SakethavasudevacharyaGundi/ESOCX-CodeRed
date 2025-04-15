@@ -20,7 +20,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startTitleAnimation() {
-        binding.titleText.setTextDirectly("Legal Aid.") // Set the text directly without animation
+        binding.titleText.setCharacterDelay(150) // 150ms delay between characters
+        binding.titleText.animateText("Legal Aid.")
     }
 
     private fun setupClickListeners() {

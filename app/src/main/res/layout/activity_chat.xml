@@ -193,7 +193,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
-                        android:src="@drawable/send"
+                        android:src="@drawable/ic_sendicon"
                         android:padding="8dp"
                         android:scaleType="fitXY"
                         android:adjustViewBounds="true"
