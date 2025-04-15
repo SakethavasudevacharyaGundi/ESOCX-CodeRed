@@ -14,13 +14,12 @@ import org.json.JSONObject
 class DocumentSummarizer(private val context: Context) {
     private val client = OkHttpClient()
 
-    // Set this to true for mock responses, false for real Gemini API
-    private val USE_MOCK_DATA = true
+    // Set this to false to use real Gemini API
+    private val USE_MOCK_DATA = false
 
     companion object {
-        // If using Android Emulator, use 10.0.2.2
-        // If using real device, use your computer's IP address from ipconfig
-        private const val SERVER_IP = "172.18.3.38" // or your computer's IP like "192.168.1.100"
+        // Using localhost for the server
+        private const val SERVER_IP = "10.0.2.2"  // localhost for Android Emulator
         private const val SERVER_PORT = "5000"
         private const val SERVER_URL = "http://$SERVER_IP:$SERVER_PORT/summarize"
     }
@@ -45,6 +44,9 @@ class DocumentSummarizer(private val context: Context) {
 
         val mediaType = when (file.extension.toLowerCase()) {
             "pdf" -> "application/pdf".toMediaTypeOrNull()
+            "docx" -> "application/vnd.openxmlformats-officedocument.wordprocessingml.document".toMediaTypeOrNull()
+            "doc" -> "application/msword".toMediaTypeOrNull()
+            "txt" -> "text/plain".toMediaTypeOrNull()
             "jpg", "jpeg" -> "image/jpeg".toMediaTypeOrNull()
             "png" -> "image/png".toMediaTypeOrNull()
             else -> "application/octet-stream".toMediaTypeOrNull()
@@ -69,7 +71,7 @@ class DocumentSummarizer(private val context: Context) {
         client.newCall(request).enqueue(object : okhttp3.Callback {
             override fun onFailure(call: okhttp3.Call, e: IOException) {
                 android.util.Log.e("DocumentSummarizer", "Network error: ${e.message}")
-                callback.onError(e.message ?: "Network error occurred")
+                callback.onError("Network error: ${e.message}")
             }
 
             override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
@@ -85,8 +87,9 @@ class DocumentSummarizer(private val context: Context) {
                         callback.onError("Failed to parse response")
                     }
                 } else {
-                    android.util.Log.e("DocumentSummarizer", "Server error: ${response.code}")
-                    callback.onError("Server error: ${response.code}")
+                    val errorBody = response.body?.string() ?: "Unknown error"
+                    android.util.Log.e("DocumentSummarizer", "Server error: ${response.code}, Body: $errorBody")
+                    callback.onError("Server error: ${response.code}\n$errorBody")
                 }
             }
         })

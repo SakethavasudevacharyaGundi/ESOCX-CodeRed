@@ -64,4 +64,45 @@
     
     <!-- Document Results -->
     <string name="summary">Summary</string>
+    
+    <!-- Available Lawyers -->
+    <string name="available_lawyers">Available Lawyers</string>
+    
+    <!-- Cities -->
+    <string name="bangalore">Bangalore</string>
+    <string name="chennai">Chennai</string>
+    <string name="delhi">Delhi</string>
+    <string name="hyderabad">Hyderabad</string>
+    <string name="kolkata">Kolkata</string>
+    <string name="mumbai">Mumbai</string>
+    <string name="nagpur">Nagpur</string>
+
+    <!-- Chat Interface -->
+    <string name="justly_bot">JUSTLY</string>
+    <string name="bot_typing">Justly BOT is typing...</string>
+    <string name="ipc_section_question">What is IPC Section 176C?</string>
+    <string name="housing_rules">Housing Rules</string>
+    <string name="faqs">FAQs</string>
+    <string name="type_message_hint">Type your message here…</string>
+    <string name="contact_button">Contact</string>
+    
+    <!-- Profile Activity -->
+    <string name="recent_activity_consultation">• Consulted with Adv. Priya Sharma on 15 Mar 2024</string>
+    <string name="recent_activity_document">• Document interpreted: Property Agreement on 12 Mar 2024</string>
+    <string name="recent_activity_chat">• Chat session with Justly BOT on 10 Mar 2024</string>
+    <string name="user_name">John Smith</string>
+    <string name="user_location">Mumbai, Maharashtra</string>
+    <string name="user_email">john.smith@email.com</string>
+    <string name="user_phone">+91 98765 43210</string>
+    <string name="user_languages">English, Hindi</string>
+
+    <!-- Profile Activity Values -->
+    <string name="user_email_value">john.smith@email.com</string>
+    <string name="user_phone_value">+91 98765 43210</string>
+    <string name="user_languages_value">English, Hindi</string>
+
+    <!-- Lawyer Profile Item -->
+    <string name="lawyer_experience_label">Experience</string>
+    <string name="lawyer_success_rate_label">Success Rate</string>
+    <string name="lawyer_rating_label">Rating</string>
 </resources>

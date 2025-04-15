@@ -196,5 +196,45 @@ def summarize():
         logger.error(f"Error in summarization: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
+def get_legal_response(prompt):
+    """Generate concise legal response using Gemini"""
+    try:
+        enhanced_prompt = f"""You are Justly BOT, a legal assistant. Provide a brief and direct response to: {prompt}
+        Requirements:
+        - Keep response under 3 sentences
+        - Focus on key legal information
+        - Use simple, clear language
+        - If applicable, cite relevant sections/acts
+        - Be direct and professional
+        """
+        
+        response = model.generate_content(enhanced_prompt)
+        return response.text.strip()
+    except Exception as e:
+        logger.error(f"Error generating legal response: {str(e)}")
+        return "I apologize, but I'm having trouble processing your legal query at the moment."
+
+@app.route('/chatbot', methods=['POST'])
+def chatbot():
+    """Handle chat requests for Justly BOT"""
+    try:
+        data = request.get_json()
+        if not data or 'message' not in data:
+            return jsonify({'error': 'No message provided'}), 400
+            
+        user_message = data['message']
+        logger.info(f"Received message: {user_message}")
+        
+        # Get concise legal response
+        bot_response = get_legal_response(user_message)
+        logger.info(f"Generated response: {bot_response}")
+        
+        return jsonify({
+            'response': bot_response
+        })
+    except Exception as e:
+        logger.error(f"Error in chatbot endpoint: {str(e)}")
+        return jsonify({'error': str(e)}), 500
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

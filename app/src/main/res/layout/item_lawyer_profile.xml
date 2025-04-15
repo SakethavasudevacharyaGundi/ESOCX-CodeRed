@@ -64,7 +64,7 @@
                 android:id="@+id/contactButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Contact"
+                android:text="@string/contact_button"
                 app:cornerRadius="8dp"
                 android:textSize="12sp"/>
 
@@ -90,7 +90,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Experience"
+                    android:text="@string/lawyer_experience_label"
                     android:textSize="12sp"
                     android:textColor="?android:attr/textColorSecondary"/>
 
@@ -113,7 +113,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Success Rate"
+                    android:text="@string/lawyer_success_rate_label"
                     android:textSize="12sp"
                     android:textColor="?android:attr/textColorSecondary"/>
 
@@ -136,7 +136,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rating"
+                    android:text="@string/lawyer_rating_label"
                     android:textSize="12sp"
                     android:textColor="?android:attr/textColorSecondary"/>
 
