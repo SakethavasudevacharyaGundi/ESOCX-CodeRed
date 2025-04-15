@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">कानूनी सहायता.</string>
+    <string name="navigation_drawer_open">नेविगेशन ड्रॉवर खोलें</string>
+    <string name="navigation_drawer_close">नेविगेशन ड्रॉवर बंद करें</string>
+    <string name="nav_header_title">कानूनी सहायता</string>
+    <string name="nav_header_subtitle">support@legalaid.com</string>
+    <string name="nav_header_desc">नेविगेशन हेडर</string>
+    <string name="action_settings">सेटिंग्स</string>
+
+    <string name="menu_home">होम</string>
+    <string name="menu_gallery">गैलरी</string>
+    <string name="menu_slideshow">स्लाइडशो</string>
+
+    <!-- Document Interpreter Strings -->
+    <string name="doc_interpreter">कानूनी दस्तावेज़ व्याख्याकार</string>
+    <string name="upload_document">कानूनी दस्तावेज़ अपलोड करें</string>
+    <string name="select_file_types">PDF, DOCX, PNG, या TXT फ़ाइल चुनें</string>
+    <string name="document_summary">दस्तावेज़ सारांश</string>
+    
+    <!-- Lawyer Chat Strings -->
+    <string name="lawyer_name">वकील का नाम</string>
+    <string name="type_message">अपना संदेश यहाँ टाइप करें…</string>
+    
+    <!-- Lawyer Item Strings -->
+    <string name="experience">अनुभव</string>
+    <string name="success_rate">सफलता दर</string>
+    <string name="rating">रेटिंग</string>
+    <string name="connect">संपर्क करें</string>
+    <string name="select_region">क्षेत्र चुनें</string>
+    
+    <!-- Region Names -->
+    <string name="delhi">दिल्ली</string>
+    <string name="mumbai">मुंबई</string>
+    <string name="bangalore">बैंगलोर</string>
+    <string name="hyderabad">हैदराबाद</string>
+    <string name="chennai">चेन्नई</string>
+    <string name="kolkata">कोलकाता</string>
+    <string name="nagpur">नागपुर</string>
+    
+    <!-- Find a Lawyer -->
+    <string name="find_lawyer">वकील खोजें</string>
+    <string name="available_lawyers">उपलब्ध वकील</string>
+
+    <!-- Home Page Tiles -->
+    <string name="tile_document_interpreter">दस्तावेज़ व्याख्याकार</string>
+    <string name="tile_justly_bot">जस्टली बॉट</string>
+    <string name="tile_case_tracker">केस ट्रैकर</string>
+    <string name="tile_find_lawyer">वकील खोजें</string>
+
+    <!-- Lawyer Details -->
+    <string name="lawyer_title_prefix">अधिवक्ता</string>
+    <string name="lawyer_experience_years">वर्ष का अनुभव</string>
+    <string name="lawyer_specialization_criminal">आपराधिक कानून</string>
+    <string name="lawyer_specialization_family">पारिवारिक कानून</string>
+    <string name="lawyer_specialization_corporate">कॉर्पोरेट कानून</string>
+    <string name="lawyer_specialization_property">संपत्ति कानून</string>
+    <string name="lawyer_specialization_civil">नागरिक कानून</string>
+    <string name="lawyer_specialization_tax">कर कानून</string>
+    <string name="lawyer_specialization_ip">बौद्धिक संपदा कानून</string>
+    <string name="lawyer_specialization_employment">रोजगार कानून</string>
+    <string name="lawyer_specialization_banking">बैंकिंग कानून</string>
+    <string name="lawyer_specialization_consumer">उपभोक्ता कानून</string>
+</resources> 

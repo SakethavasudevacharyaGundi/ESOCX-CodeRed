@@ -142,10 +142,10 @@ class LegalAidRequestActivity : AppCompatActivity() {
 
     private fun setupRegionDropdown() {
         val adapter = ArrayAdapter(this, R.layout.dropdown_item, regions)
-        binding.regionInput.setAdapter(adapter)
-        binding.regionInput.dropDownHeight = 400 // Set max height for dropdown
+        binding.regionAutoComplete.setAdapter(adapter)
+        binding.regionAutoComplete.dropDownHeight = 400 // Set max height for dropdown
 
-        binding.regionInput.setOnItemClickListener { _, _, position, _ ->
+        binding.regionAutoComplete.setOnItemClickListener { _, _, position, _ ->
             val selectedRegion = regions[position]
             filterLawyersByRegion(selectedRegion)
         }

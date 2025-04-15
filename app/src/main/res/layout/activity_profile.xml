@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="My Profile"
+        android:text="@string/my_profile"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -102,7 +102,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Personal Information"
+                        android:text="@string/personal_information"
                         android:textColor="#333333"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -124,7 +124,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Email"
+                                android:text="@string/email"
                                 android:textColor="#666666"
                                 android:textSize="14sp" />
 
@@ -140,7 +140,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="16dp"
-                                android:text="Phone"
+                                android:text="@string/phone"
                                 android:textColor="#666666"
                                 android:textSize="14sp" />
 
@@ -156,7 +156,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="16dp"
-                                android:text="Preferred Language"
+                                android:text="@string/preferred_language"
                                 android:textColor="#666666"
                                 android:textSize="14sp" />
 
@@ -174,7 +174,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
-                        android:text="Recent Activities"
+                        android:text="@string/recent_activities"
                         android:textColor="#333333"
                         android:textSize="18sp"
                         android:textStyle="bold" />

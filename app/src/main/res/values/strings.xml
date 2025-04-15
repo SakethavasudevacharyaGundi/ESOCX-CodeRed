@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LA</string>
+    <string name="app_name">Legal Aid.</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -26,4 +26,42 @@
     <string name="success_rate">Success Rate</string>
     <string name="rating">Rating</string>
     <string name="connect">Connect</string>
+    <string name="select_region">Select Region</string>
+
+    <!-- Home Page Tiles -->
+    <string name="tile_document_interpreter">Document Interpreter</string>
+    <string name="tile_justly_bot">Justly BOT</string>
+    <string name="tile_case_tracker">Case Tracker</string>
+    <string name="tile_find_lawyer">Find a Lawyer</string>
+
+    <!-- Lawyer Details -->
+    <string name="lawyer_title_prefix">Adv.</string>
+    <string name="lawyer_experience_years">years</string>
+    <string name="lawyer_specialization_criminal">Criminal Law</string>
+    <string name="lawyer_specialization_family">Family Law</string>
+    <string name="lawyer_specialization_corporate">Corporate Law</string>
+    <string name="lawyer_specialization_property">Property Law</string>
+    <string name="lawyer_specialization_civil">Civil Law</string>
+    <string name="lawyer_specialization_tax">Tax Law</string>
+    <string name="lawyer_specialization_ip">IP Law</string>
+    <string name="lawyer_specialization_employment">Employment Law</string>
+    <string name="lawyer_specialization_banking">Banking Law</string>
+    <string name="lawyer_specialization_consumer">Consumer Law</string>
+    <string name="find_lawyer">Find a Lawyer</string>
+    
+    <!-- Profile -->
+    <string name="my_profile">My Profile</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="preferred_language">Preferred Language</string>
+    <string name="recent_activities">Recent Activities</string>
+    
+    <!-- Login -->
+    <string name="welcome_esocx">Welcome to ESOCX</string>
+    <string name="sign_in">Sign In</string>
+    <string name="create_account">Create Account</string>
+    
+    <!-- Document Results -->
+    <string name="summary">Summary</string>
 </resources>
