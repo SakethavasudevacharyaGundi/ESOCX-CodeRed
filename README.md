@@ -32,16 +32,3 @@ NyayaPath is a cross-platform legal assistance app that empowers citizens to und
 - **Smart Legal Aid Connector**
   - AI-powered matching with legal aid clinics, NGOs, and lawyers
 
----
-
-## 🧰 Tech Stack
-
-| Component           | Technology             |
-|--------------------|------------------------|
-| Frontend (Web)     | Svelte                 |
-| Frontend (Mobile)  | Flutter                |
-| Backend (API)      | Django                 |
-| Microservices      | Flask                  |
-| AI & NLP           | PyTorch                |
-| OCR                | OpenCV                 |
-| Database           | PostgreSQL             |
